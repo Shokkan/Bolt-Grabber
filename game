@@ -1,0 +1,15 @@
+    player.x - player.size / 2, 
+    player.y - player.size / 2, 
+    player.size, player.size;
+
+function gameLoop(currentTime) {
+    const deltaTime = lastTime === 0
+        ? 0
+        : Math.min((currentTime - lastTime), 1000 / 0.5);
+    lastTime = currentTime;
+    update(deltaTime);
+    draw();
+
+    requestAnimationFrame(gameLoop);
+}
+    requestAnimationFrame(gameLoop);
